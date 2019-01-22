@@ -2,4 +2,9 @@
 
 import '../styles/index.scss';
 
-console.log('Hello Izabella');
+const foo = () => {
+  console.log('Hello Yrgo');
+
+}
+
+foo();
