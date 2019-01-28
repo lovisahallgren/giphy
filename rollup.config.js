@@ -4,10 +4,11 @@ const postcssNormalize = require('postcss-normalize');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const babel = require('rollup-plugin-babel');
+const injectEnv = require('rollup-plugin-inject-env');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const filesize = require('rollup-plugin-filesize');
-const {terser} = require('rollup-plugin-terser');
+const { terser } = require('rollup-plugin-terser');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = isProduction === false;
@@ -17,23 +18,24 @@ module.exports = {
   output: {
     file: 'public/giphy.js',
     format: 'iife',
-    sourcemap: isDevelopment,
+    sourcemap: isDevelopment
   },
   plugins: [
     babel(),
     nodeResolve(),
     commonjs(),
+    injectEnv(),
     postcss({
       extract: true,
       plugins: [
         postcssNormalize(),
         autoprefixer(),
-        cssnano(),
+        cssnano()
       ],
-      sourceMap: isDevelopment,
+      sourceMap: isDevelopment
     }),
-    (isDevelopment && browsersync({server: 'public'})),
+    (isDevelopment && browsersync({ server: 'public' })),
     (isProduction && terser()),
-    (isProduction && filesize()),
+    (isProduction && filesize())
   ]
 };
