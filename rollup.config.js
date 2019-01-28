@@ -9,6 +9,7 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const filesize = require('rollup-plugin-filesize');
 const { terser } = require('rollup-plugin-terser');
+const ghPages = require('gh-pages');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = isProduction === false;
