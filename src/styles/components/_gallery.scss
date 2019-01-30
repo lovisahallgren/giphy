@@ -1,0 +1,16 @@
+.gallery {
+  width: 100%;
+}
+
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  img {
+    width: 40%;
+    height: 40vh;
+    margin: 2vh;
+  }
+}

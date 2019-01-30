@@ -1,27 +1,26 @@
 'use strict';
-
-import '../styles/index.scss';
 import giphy from './giphy';
 
-const searchButton = document.querySelector('.search__button');
+import '../styles/index.scss';
+
+const form = document.querySelector('.search');
+const searchField = document.querySelector('.search__field');
+const notFound = document.querySelector('.not-found');
 
 const gallery = document.querySelector('.gallery');
 
 const createGif = (json) => {
   json.data.map(gif => {
     gallery.innerHTML += `
-      <a class="gallery__item">
+      <a href="${gif.url}" class="gallery__item">
         <img src="${gif.images.downsized.url}">
       </a>
     `;
   });
 };
 
-searchButton.addEventListener('click', event => {
+form.addEventListener('submit', event => {
   event.preventDefault();
-
-  const searchField = document.querySelector('.search__field');
-  const notFound = document.querySelector('.not-found');
 
   gallery.innerHTML = '';
   notFound.textContent = '';

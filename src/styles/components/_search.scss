@@ -1,0 +1,24 @@
+.search {
+  width: 70%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+
+}
+
+.search__field {
+  width: 80%;
+  height: 100%;
+  border: 2px solid rgb(129, 76, 236);
+  display: flex;
+}
+
+.search__button {
+  width: 7%;
+  height: 115%;
+  border: none;
+  background-image: url('images/search.gif');
+  background-position: center;
+  background-size: cover;
+}
